@@ -2,16 +2,6 @@
 
 Assistant (chat dans le navigateur) qui répond à des questions sur Tunis **uniquement à partir de documents** (TXT, Markdown, Word, PDF) et **cite ses sources** avec le fichier, la section et, pour un PDF, le numéro de page. Si les documents ne contiennent pas la réponse, il le dit au lieu d'inventer.
 
-## Démo
-
-Une question dans le corpus : la réponse est suivie des documents, sections et scores utilisés.
-
-![Réponse avec sources](docs/demo-reponse-sourcee.png)
-
-Une question hors corpus : le système refuse de répondre au lieu d'inventer.
-
-![Refus hors corpus](docs/demo-hors-corpus.png)
-
 ## Architecture
 
 ```
@@ -48,7 +38,7 @@ Réponse + sources                         app.py (Gradio)
 - **Réimporter un fichier remplace** son ancienne version dans la base.
 - **LLM injectable** : `RagService` accepte tout objet avec une méthode `generate`, ce qui permet de tester sans charger le modèle.
 
-## Installation
+## lancer le projet
 
 Prérequis : Python 3.10 ou plus.
 
@@ -90,22 +80,13 @@ Les tests utilisent un faux modèle d'embeddings et un faux LLM : ils s'exécute
 
 Les 7 documents de `data/tunis/` sont des synthèses courtes sur la médina, Carthage, Sidi Bou Saïd, les transports, la cuisine, le musée du Bardo et les infos pratiques. Ils servent de démonstration et ne sont pas exhaustifs : les faits sont à recouper avec les sources officielles (UNESCO, ONTT). Les tarifs et horaires ne sont volontairement pas indiqués, car ils changent. On peut ajouter ses propres documents avec `scripts.ingest`.
 
-## Limites
-
-- Les PDF scannés (images) ne sont pas lus : il faudrait de l'OCR.
-- La recherche est purement vectorielle ; une recherche par mots-clés en plus (hybride) améliorerait les noms propres.
-- Pas d'historique de conversation : chaque question est indépendante.
-- Un très long paragraphe reste un seul morceau, et une information répartie sur deux paragraphes peut être séparée.
-- Le petit modèle Qwen2.5-1.5B peut reformuler de façon imprécise, par exemple en développant un sigle absent des documents. Un modèle plus grand ou une API de LLM réduirait ce risque.
+## Démo
 
 ## Prochaines étapes
 
 - API REST avec **FastAPI** et conteneurisation **Docker**.
 - Upload de documents depuis l'interface.
 
-## Inspiration
-
-L'idée d'un assistant documentaire qui cite ses sources est inspirée du projet *intelligent-document-assistant* de Mohamed Hedi Bhouri. Cette version a une implémentation différente (ChromaDB, découpage par paragraphes avec titres, sources avec pages, seuil calibré sur des questions hors corpus, corpus sur Tunis).
 
 ---
 Auteur : Achref Belhaj · [GitHub](https://github.com/achrefbelhaj) · [LinkedIn](https://www.linkedin.com/in/achref-belhadj-392075359/)
