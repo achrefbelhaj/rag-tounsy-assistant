@@ -19,3 +19,5 @@ La station Sidi Bou Saïd est desservie par le TGM, le train qui relie Tunis Mar
 ## Conseil de visite
 
 Le village est très fréquenté en été et le week-end. Pour éviter la foule et la chaleur, venez tôt le matin ou en fin d'après-midi, et portez des chaussures confortables.
+
+
