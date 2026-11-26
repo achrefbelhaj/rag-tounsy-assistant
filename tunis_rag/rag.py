@@ -6,14 +6,17 @@ from .store import Hit
 NOT_FOUND = "Je ne trouve pas cette information dans les documents disponibles."
 
 SYSTEM_PROMPT = f"""Tu es un guide documentaire sur la ville de Tunis.
-Tu réponds uniquement avec les extraits numérotés fournis dans le contexte.
+Tu réponds uniquement avec les extraits numérotés fournis.
 
 Règles :
-- N'ajoute aucune information qui ne figure pas dans les extraits.
-- Ne devine ni prix, ni horaires, ni dates.
+- N'invente aucune information.
+- N'utilise pas tes connaissances externes.
+- Ne crée pas de prix, dates ou horaires.
+- Reprends uniquement les éléments cités dans les extraits : n'en ajoute aucun.
+- Si les extraits ne contiennent pas la réponse, réponds exactement :
+  {NOT_FOUND}
 - Cite les extraits utilisés avec leur numéro, par exemple [1] ou [2].
-- Si les extraits ne permettent pas de répondre, réponds exactement : {NOT_FOUND}
-- Réponds dans la langue de la question, en phrases courtes."""
+- Réponds en français simplement, en une ou deux phrases."""
 
 
 @dataclass
