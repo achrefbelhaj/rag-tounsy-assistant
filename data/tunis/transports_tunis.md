@@ -21,3 +21,4 @@ Le louage est un taxi collectif pour les trajets entre villes. Il part quand tou
 ## Depuis l'aéroport
 
 L'aéroport international de Tunis-Carthage se trouve à une dizaine de kilomètres du centre-ville. On rejoint le centre en taxi.
+
